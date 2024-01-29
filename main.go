@@ -367,6 +367,7 @@ func setActionOutput(name string, content string) {
 	_, err = output.WriteString(name + "=" + content + "\n")
 	if err != nil {
 		log.Error(err)
+		return
 	}
 }
 
