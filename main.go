@@ -265,7 +265,7 @@ func mergeTags(data map[string][]geosite.Item) {
 		cnCodeList = append(cnCodeList, code)
 	}
 	newMap := make(map[geosite.Item]bool)
-	for _, item := range data["cn"] {
+	for _, item := range data["geolocation-cn"] {
 		newMap[item] = true
 	}
 	for _, code := range cnCodeList {
@@ -277,7 +277,7 @@ func mergeTags(data map[string][]geosite.Item) {
 	for item := range newMap {
 		newList = append(newList, item)
 	}
-	data["cn"] = newList
+	data["geolocation-cn"] = newList
 	println("merged cn categories: " + strings.Join(cnCodeList, ","))
 }
 
@@ -304,8 +304,7 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
 		return err
 	}
 	cnCodes := []string{
-		"cn",
-		"geolocation-!cn",
+		"geolocation-cn",
 	}
 	cnDomainMap := make(map[string][]geosite.Item)
 	for _, cnCode := range cnCodes {
