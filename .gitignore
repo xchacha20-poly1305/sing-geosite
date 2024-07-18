@@ -1,4 +1,5 @@
 /.idea/
 /vendor/
-/**.db
+**.db
 /rule-set/
+/rule-set-unstable/
