@@ -15,3 +15,6 @@ lint_install:
 
 test:
 	go test -v ./...
+
+run:
+	go run .
